@@ -6,11 +6,11 @@ set -euo pipefail
 : "${GITHUB_SHA:?GITHUB_SHA is required}"
 
 manifest=".github/maintenance/branch-audit-2026-10-13.json"
+# Active contributor PRs are expected. Each candidate branch is checked
+# individually for open PRs immediately before deletion, so unrelated active
+# work never prevents stale, already-reviewed branch cleanup.
 open_count="$(gh api "repos/${GITHUB_REPOSITORY}/pulls?state=open&per_page=100" --jq 'length')"
-if [[ "$open_count" != "0" ]]; then
-  echo "::warning::Open PRs exist. Branch cleanup is postponed to protect active work."
-  exit 0
-fi
+echo "Open pull requests: ${open_count}. Their branches are always preserved."
 
 current_main="$(gh api "repos/${GITHUB_REPOSITORY}/git/ref/heads/main" --jq '.object.sha')"
 [[ "$current_main" == "$GITHUB_SHA" ]] || {
