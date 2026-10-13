@@ -107,7 +107,7 @@ done < <(jq -c '.branches[]' "$manifest")
 # The branch that opened the bootstrap PR is now also a merged and stale branch.
 # Its SHA cannot be statically pinned in its own commit, so independently
 # validate its final head against its completed, just-merged PR.
-self_branch="release/bootstrap-versioned-releases-and-cleanup"
+self_branch="release/fix-bootstrap-tag-preflight"
 self_json="$(gh api "repos/${GITHUB_REPOSITORY}/branches?per_page=100" | jq -c --arg name "$self_branch" '.[] | select(.name == $name)')"
 if [[ -n "$self_json" ]]; then
   self_sha="$(jq -r '.commit.sha' <<< "$self_json")"
