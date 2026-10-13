@@ -89,5 +89,5 @@ The public installation is at **[fraware.github.io/verse](https://fraware.github
 
 If you deploy another copy, configure the Vite base URL and GitHub Pages path appropriately. No poem backend is necessary for standalone, browser-local use.
 
-**License:** [MIT](LICENSE), copyright © 2026 Mateo Petel. You may use, modify, distribute, and sublicense the project under the terms of the MIT License. Preserve the license and copyright notice in copies or substantial portions. Third-party dependencies and assets retain their respective licenses.
+**License:** [MIT](LICENSE). You may use, modify, distribute, and sublicense the project under the terms of the MIT License. Preserve the license and copyright notice in copies or substantial portions. Third-party dependencies and assets retain their respective licenses.
 
