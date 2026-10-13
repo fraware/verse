@@ -39,7 +39,7 @@ for i in "${!versions[@]}"; do
     [[ "$green" -ge 1 ]] || { echo "::error::No successful push validation for ${tag}"; exit 1; }
   fi
 
-  remote_sha="$(gh api "repos/${GITHUB_REPOSITORY}/git/ref/tags/${tag}" --jq '.object.sha' 2>/dev/null || true)"
+  remote_sha="$(gh api "repos/${GITHUB_REPOSITORY}/git/ref/tags/${tag}" 2>/dev/null | jq -r '.object.sha // empty' || true)"
   if [[ -n "$remote_sha" && "$remote_sha" != "$sha" ]]; then
     echo "::error::Existing ${tag} ref points to ${remote_sha}; expected ${sha}. No tag is modified."
     exit 1
@@ -81,7 +81,7 @@ for i in "${!versions[@]}"; do
   (cd "$worktree/dist" && zip -q -r "$archive" .)
   git worktree remove --force "$worktree"
 
-  refsha="$(gh api "repos/${GITHUB_REPOSITORY}/git/ref/tags/${tag}" --jq '.object.sha' 2>/dev/null || true)"
+  refsha="$(gh api "repos/${GITHUB_REPOSITORY}/git/ref/tags/${tag}" 2>/dev/null | jq -r '.object.sha // empty' || true)"
   if [[ -z "$refsha" ]]; then
     gh api --method POST "repos/${GITHUB_REPOSITORY}/git/refs" \
       -f "ref=refs/tags/${tag}" -f "sha=${sha}" >/dev/null

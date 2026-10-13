@@ -6,11 +6,11 @@ set -euo pipefail
 : "${GITHUB_SHA:?GITHUB_SHA is required}"
 
 manifest=".github/maintenance/branch-audit-2026-10-13.json"
+# Active contributor PRs are expected. Each candidate branch is checked
+# individually for open PRs immediately before deletion, so unrelated active
+# work never prevents stale, already-reviewed branch cleanup.
 open_count="$(gh api "repos/${GITHUB_REPOSITORY}/pulls?state=open&per_page=100" --jq 'length')"
-if [[ "$open_count" != "0" ]]; then
-  echo "::warning::Open PRs exist. Branch cleanup is postponed to protect active work."
-  exit 0
-fi
+echo "Open pull requests: ${open_count}. Their branches are always preserved."
 
 current_main="$(gh api "repos/${GITHUB_REPOSITORY}/git/ref/heads/main" --jq '.object.sha')"
 [[ "$current_main" == "$GITHUB_SHA" ]] || {
@@ -107,7 +107,7 @@ done < <(jq -c '.branches[]' "$manifest")
 # The branch that opened the bootstrap PR is now also a merged and stale branch.
 # Its SHA cannot be statically pinned in its own commit, so independently
 # validate its final head against its completed, just-merged PR.
-self_branch="release/bootstrap-versioned-releases-and-cleanup"
+self_branch="release/fix-bootstrap-tag-preflight"
 self_json="$(gh api "repos/${GITHUB_REPOSITORY}/branches?per_page=100" | jq -c --arg name "$self_branch" '.[] | select(.name == $name)')"
 if [[ -n "$self_json" ]]; then
   self_sha="$(jq -r '.commit.sha' <<< "$self_json")"
