@@ -79,6 +79,10 @@ Its [GitHub Actions pipeline](.github/workflows/ci.yml) checks TypeScript, lint,
 | [Contributing](CONTRIBUTING.md) | Working on changes and reviewing pull requests |
 | [Security](SECURITY.md) | Responsible reporting and safe handling of issues |
 
+### Versioned releases
+
+Each product milestone has a [GitHub Release](https://github.com/fraware/verse/releases), a source archive, and a downloadable GitHub Pages bundle. See the [changelog](CHANGELOG.md) for the distinct milestones, validation evidence and browser-local storage limitations.
+
 ### Publishing this static application
 
 The public installation is at **[fraware.github.io/verse](https://fraware.github.io/verse/)**. The repository's workflow builds and publishes to GitHub Pages once its checks pass. Under repository **Settings → Pages**, the publication source must be **GitHub Actions**.

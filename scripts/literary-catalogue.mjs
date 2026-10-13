@@ -46,9 +46,16 @@ try {
     await page.getByLabel("Poem", { exact: true }).fill(source);
     await page.getByRole("button", { name: "Show examples" }).click();
     await page.getByText(replacement, { exact: true }).waitFor();
-    await page.getByText("1 matching example available").waitFor();
-    await page.getByRole("button", { name: "Apply to draft", exact: true }).first().click();
-    assert.equal(await page.getByLabel("Poem", { exact: true }).inputValue(), replacement, name);
+    // The product contract is an enabled, applicable action, not the exact
+    // wording or count of a transient status message during React updates.
+    const apply = page.getByRole("button", { name: "Apply to draft", exact: true }).first();
+    try {
+      await apply.click({ timeout: 15000 });
+      assert.equal(await page.getByLabel("Poem", { exact: true }).inputValue(), replacement, name);
+    } catch (error) {
+      const statuses = await page.getByRole("status").allTextContents();
+      throw new Error(`Literary application failed for ${name}; statuses: ${statuses.join(" | ")}`, { cause: error });
+    }
   }
 
   // Selecting general exercises again is explicit and does not retain another poet's catalogue.

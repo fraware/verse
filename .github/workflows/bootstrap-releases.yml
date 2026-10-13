@@ -1,0 +1,45 @@
+name: Bootstrap verified Verse releases and branch hygiene
+
+# A one-time, idempotent maintenance bootstrap. Ordinary later pushes do not
+# trigger it. It waits for the separate Validate workflow on the exact SHA.
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/bootstrap-releases.yml
+
+permissions:
+  contents: write
+  actions: read
+  pull-requests: read
+
+concurrency:
+  group: verse-release-bootstrap
+  cancel-in-progress: false
+
+jobs:
+  verified-releases-and-cleanup:
+    if: github.repository == 'fraware/verse'
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Require successful production validation on exact main SHA
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: bash scripts/verify-release-ci.sh
+      - name: Publish three immutable, tested release milestones
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: bash scripts/publish-milestone-releases.sh
+      - name: Safely remove audited merged and abandoned branches
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: bash scripts/cleanup-audited-branches.sh

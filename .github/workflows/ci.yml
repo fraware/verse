@@ -25,6 +25,8 @@ jobs:
       - run: npm ci
       - run: npm run typecheck
       - run: npm run lint
+      - name: Check release automation shell syntax
+        run: bash -n scripts/verify-release-ci.sh scripts/publish-milestone-releases.sh scripts/cleanup-audited-branches.sh
       - name: Verify shared brand asset and dash-free website copy
         run: node scripts/check-brand.mjs
       - run: npm run test:unit

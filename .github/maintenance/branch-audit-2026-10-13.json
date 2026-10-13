@@ -1,0 +1,149 @@
+{
+  "schema": 1,
+  "audited_at": "2026-10-13",
+  "repository": "fraware/verse",
+  "baseline_main_sha": "36c975968fb20db463a0905f25968586318cb9c4",
+  "policy": "Delete only when the branch still points to its audited SHA, the linked PR remains closed, no open PR references it, merged PR's squash merge is in current main, or the abandoned PR number is explicitly approved; skip all protected or modified branches.",
+  "branches": [
+    {
+      "branch": "audit/privacy-local-beta-2026-10-12",
+      "sha": "69f7db9ad8fff5f32ae438bdcecfddfaaac04a0c",
+      "pull_request": 19,
+      "disposition": "merged",
+      "merge_commit_sha": "4f6eb10a413dcfea69aa3aa2a2a8ddbebd88b99e"
+    },
+    {
+      "branch": "audit/reliability-documentation-2026-10-12",
+      "sha": "580b221b20521f75c0a1d851059d95d79cd2d346",
+      "pull_request": 14,
+      "disposition": "merged",
+      "merge_commit_sha": "55063373a09289aefa055b30c7b41616aa4b1d24"
+    },
+    {
+      "branch": "audit/security-accessibility-2026-10-12",
+      "sha": "75b1f57a0fe156a35d2293a0e395803f8c327761",
+      "pull_request": 15,
+      "disposition": "merged",
+      "merge_commit_sha": "f56bcaeb7f14874b01bd922ac64010b9df93719a"
+    },
+    {
+      "branch": "chore/add-mit-license",
+      "sha": "d470c2f626114948a937cd06abd15c105be473ba",
+      "pull_request": 34,
+      "disposition": "merged",
+      "merge_commit_sha": "ce6c514d3b3dd556918c774a17c6b5e27f60cc47"
+    },
+    {
+      "branch": "chore/github-actions-updates-2026-10-12",
+      "sha": "527952d3735a0f5baf15962c835266fa2e037240",
+      "pull_request": 17,
+      "disposition": "merged",
+      "merge_commit_sha": "4720cfe5e650e0eb8675ce2a36437b661e48e183"
+    },
+    {
+      "branch": "design/readme-logo-only",
+      "sha": "051778b43f7429c91804d406aacff8db13eda119",
+      "pull_request": 33,
+      "disposition": "merged",
+      "merge_commit_sha": "a049d71dada1573ca7fa3388c27034e7fecdfcaa"
+    },
+    {
+      "branch": "design/unify-verse-brand-and-editorial-readme",
+      "sha": "f47a3aa6016e615ed1963cc026584a7d58d6a0e5",
+      "pull_request": 28,
+      "disposition": "merged",
+      "merge_commit_sha": "16cc8081d73a87a8a7a27550b63c3b3351f06e52"
+    },
+    {
+      "branch": "feature/indexeddb-transactional-local-poems",
+      "sha": "9a95ab1fc15637d8ad6cd847290785116c6144da",
+      "pull_request": 24,
+      "disposition": "merged",
+      "merge_commit_sha": "874fbd5a4b49d1f38bfb06d4e2961c1a708e41bd"
+    },
+    {
+      "branch": "feature/private-craft-experiments",
+      "sha": "d076aebeb9e75e778544672461a8d8ab0693120c",
+      "pull_request": 31,
+      "disposition": "merged",
+      "merge_commit_sha": "420aac13918473c9680b3dc8f7fcbca2720711e0"
+    },
+    {
+      "branch": "fix/atomic-browser-poem-writes",
+      "sha": "f6fe36438284296c448c4703d82008c8a9048df4",
+      "pull_request": 20,
+      "disposition": "merged",
+      "merge_commit_sha": "161c77cde2549b5f58ddaee0b3544e7a712beb6c"
+    },
+    {
+      "branch": "fix/concurrency-test-queue-handshake",
+      "sha": "7e5d5de07e9c401e581cd890e83a41fe529bd0f5",
+      "pull_request": 21,
+      "disposition": "abandoned",
+      "merge_commit_sha": null
+    },
+    {
+      "branch": "fix/editor-draft-safety",
+      "sha": "da3bdeaafdf592cbc9d5be19e169d2d6d1d6e329",
+      "pull_request": 29,
+      "disposition": "merged",
+      "merge_commit_sha": "077c786cf51ea71e54dfcff2e46e28fe4524fbbb"
+    },
+    {
+      "branch": "fix/export-fresh-indexeddb-snapshot",
+      "sha": "6acdbdf0fbcc501ba9de6a1c73ab975ef310e76d",
+      "pull_request": 27,
+      "disposition": "merged",
+      "merge_commit_sha": "754097dbad7857533a0d1157e7b2106bc5160295"
+    },
+    {
+      "branch": "fix/indexeddb-webkit-editor-load-test",
+      "sha": "4a5a79e3713b622bd5a114d862a0e7e12c804eab",
+      "pull_request": 26,
+      "disposition": "merged",
+      "merge_commit_sha": "a45ab9958b9f6fa4d55eff0ff6f03b1c4faba85e"
+    },
+    {
+      "branch": "improve/literary-catalogue-integrity",
+      "sha": "2d4eac5b7f9783fee8cc524f683ccf297fed224a",
+      "pull_request": 30,
+      "disposition": "merged",
+      "merge_commit_sha": "ddf02495b6aee92134be8aac4b4ab056071afd1b"
+    },
+    {
+      "branch": "quality/mobile-polish-regressions-2026-10-12",
+      "sha": "50b9d9e71b54a21d98dffde74d896640cbd8ef88",
+      "pull_request": 16,
+      "disposition": "merged",
+      "merge_commit_sha": "fb9b9f7d61b6d8e9749af8151c3bafdcdb9053d0"
+    },
+    {
+      "branch": "research/opt-in-craft-usability-pilot",
+      "sha": "4188b600a7181c267c07a0ae8c7afedd26d653f0",
+      "pull_request": 32,
+      "disposition": "merged",
+      "merge_commit_sha": "4f9e7ffa56d539dc8bcb32880c9c476a9f48254b"
+    },
+    {
+      "branch": "revert/unverified-weblocks-storage",
+      "sha": "d5e549abb2eabb09cb950dda976184360b0f4c26",
+      "pull_request": 23,
+      "disposition": "merged",
+      "merge_commit_sha": "3292eb28516c8b1c313ed41ceb5d38f876407d6d"
+    },
+    {
+      "branch": "security/tailwind4-indexeddb-baseline",
+      "sha": "15e97a3fbf68b0e313b1eea30f3cb57739e84ce9",
+      "pull_request": 25,
+      "disposition": "merged",
+      "merge_commit_sha": "47362a17ba717977d5501c565f9eb23dd509607d"
+    },
+    {
+      "branch": "security/tailwind4-toolchain-evaluation",
+      "sha": "47e0a7a78b20893ec5247884d3b9bb04af17b048",
+      "pull_request": 22,
+      "disposition": "abandoned",
+      "merge_commit_sha": null
+    }
+  ]
+}
