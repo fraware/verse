@@ -18,6 +18,15 @@ Saved poems are stored as individual records in the browser IndexedDB database `
 
 `selected_poet` is optional. The `is_public` field is a legacy local schema field; **it does not publish writing** and does not implement access control. Publication only occurs through explicit third-party sharing. Unknown schema versions are rejected during backup import.
 
+## Making and checking a backup
+
+1. Open **My Collection** and choose **Export backup**.
+2. Keep the downloaded `verse-backup-YYYY-MM-DD.json` file somewhere you can recover it, such as an encrypted drive or a trusted private backup location.
+3. Before relying on it, open the file in a text editor and check that it is valid JSON with `schemaVersion: 1` and a `poems` array. Do not paste its contents into a public issue, gist, or other service: the file contains the full poem text in plain text.
+4. To bring poems into another Verse installation, choose **Restore backup** and select that file. Keep the original file until you have confirmed that the poems you need are present.
+
+The export is a portable copy of the collection, not an encrypted archive. Anyone who can read the file can read the writing inside it.
+
 ## Backup format
 
 ```json
@@ -28,7 +37,7 @@ Saved poems are stored as individual records in the browser IndexedDB database `
 }
 ```
 
-The exported file contains all writing in plain text: protect it accordingly. Import is capped at 20 MB; invalid JSON, malformed documents, and duplicate IDs are rejected. An import adds new IDs and keeps existing records in collisions. This is **merge-only**, not a restore-to-exact-state operation. Export a backup before importing, deleting, or clearing site data.
+The exported file contains all writing in plain text: protect it accordingly. Import is capped at 20 MB; invalid JSON, malformed documents, and duplicate IDs are rejected. An import adds new IDs and keeps existing records in collisions. This is **merge-only**, not a restore-to-exact-state operation: it does not delete poems that are missing from the file or replace an existing poem when its ID is already present. Export a backup before importing, deleting, or clearing site data.
 
 ## Optional usability pilot
 

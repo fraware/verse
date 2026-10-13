@@ -19,7 +19,7 @@ Verse runs as a static site. Its poem collection lives in **IndexedDB in your cu
 - **Private to a browser profile.** Separate profiles have separate collections. Anyone using the same browser profile has access to its stored poems. Verse does not encrypt them.
 - **Designed for concurrent tabs.** IndexedDB transactions coordinate saves and imports. If another tab edits the same poem, Verse preserves your draft and provides a **Save a separate copy** option.
 - **Compatible with older Verse writing.** The first visit copies records from `localStorage["verse_poems"]` into IndexedDB. It leaves the original records untouched. Refresh older open tabs before continuing work.
-- **Backups belong to you.** Use **My Collection → Export backup** regularly. Backups are plain-text JSON files with schema version 1. Import merges new poem IDs without replacing existing entries.
+- **Backups belong to you.** Use **My Collection → Export backup** regularly, then verify the downloaded JSON has `schemaVersion: 1` and a `poems` array. Backups contain the full poem text in plain text, and import merges new poem IDs without replacing existing entries.
 
 **Important:** Clearing browser data, using temporary/private browsing, losing a device, or switching to a different site origin can leave poems inaccessible. Local browser storage is not a durable substitute for your own backups. External sharing transmits the chosen text to the destination following user confirmation, including before a final social post is published.
 
