@@ -144,6 +144,13 @@
       "pull_request": 22,
       "disposition": "abandoned",
       "merge_commit_sha": null
+    },
+    {
+      "branch": "release/bootstrap-versioned-releases-and-cleanup",
+      "sha": "1fa1f552b618b51d2905dfff835547c55a1d5d34",
+      "pull_request": 38,
+      "disposition": "merged",
+      "merge_commit_sha": "fa6a6ed76b9d3f1cfbbe09aafd7ee33cc2ea740a"
     }
   ]
 }
