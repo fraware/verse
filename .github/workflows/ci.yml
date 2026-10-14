@@ -71,7 +71,7 @@ jobs:
           done
       - name: Upload screenshots
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: verse-smoke-screenshots
           path: test-artifacts/
@@ -103,7 +103,7 @@ jobs:
           node scripts/a11y.mjs
       - name: Upload accessibility audit
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: verse-axe-results
           path: test-artifacts/axe-results.json
