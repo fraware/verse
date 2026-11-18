@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: >-
+  Cite the exact GitHub release or commit of Verse used in research or
+  teaching; this repository-level record does not identify a specific version.
+title: Verse
+type: software
+authors:
+  - family-names: Petel
+    given-names: Mateo
+repository-code: "https://github.com/fraware/verse"
+url: "https://fraware.github.io/verse/"
+license: MIT
+abstract: >-
+  Local-first browser writing application for drafting, revising, and
+  collecting poetry, with IndexedDB storage and user-managed JSON backups.
+  No accounts or cloud poem storage are used by the application.
+keywords:
+  - poetry
+  - creative writing
+  - local-first software
+  - IndexedDB
+  - privacy
